@@ -1,0 +1,34 @@
+<template>
+    <lightning-card class="slds-var-p-around_large">
+        <div style= "padding:0.5rem;background:#16325c" class="slds-text-align_center slds-text-color_inverse ">Team Member
+        </div>
+        <lightning-input 
+            label="Name"
+            name="NameInput" 
+            onchange={onNameChange}
+            placeholder="Enter the name"
+            variant="label-inline">
+        </lightning-input>
+        <lightning-combobox 
+            label="Team"
+            name="TeamComboBox"
+            variant="label-inline"
+            options={teamOption}
+            onchange={handleChange}>
+        </lightning-combobox>
+        <!-- WHAT IF NO TEAM DATA IS PRESENT -->
+        <lightning-textarea
+            label="Skills"
+            placeholder="Enter the skill"
+            variant="label-inline"
+            onchange={onSkillChange}>
+        </lightning-textarea>
+        <lightning-button class="slds-align_absolute-center"
+            label="Save"
+            type="Submit"
+            variant="Brand"
+            onclick={handleSave}>
+        </lightning-button>
+    </lightning-card>
+    <c-team-list></c-team-list>
+</template>

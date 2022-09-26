@@ -1,0 +1,48 @@
+<template>
+    <lightning-card class="slds-var-p-around_large">
+        <div style= "padding:0.5rem;background:#16325c" class="slds-text-align_center slds-text-color_inverse ">Team List
+        </div>
+        <lightning-combobox 
+        label="Team"
+        name="TeamComboBox"
+        variant="label-inline"
+        options={teamOption}
+        onchange={handleChange}>
+        </lightning-combobox>
+
+
+
+
+        <template if:true={teamMemberData}>
+            <template for:each={teamMemberData} for:item="teamMember">
+                <!-- <p key={teamMember.id}>{teamMember.id},{teamMember.Name},{teamMember.Team__c},{teamMember.Skills__c} </p> -->
+                <div key={teamMember.id} class="slds-box">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_1-of-2">
+                            <b>Name</b>
+                            </div>
+                            <div class="slds-col slds-size_2-of-2">
+                                {teamMember.Name}
+                            </div>
+                        </div>
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_1-of-2">
+                                <b>Team</b>
+                            </div>
+                            <div class="slds-col slds-size_2-of-2">
+                                {teamMember.Team__r.Name}
+                            </div>
+                        </div>
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_1-of-2">
+                                <b>Skills</b>
+                            </div>
+                            <div class="slds-col slds-size_2-of-2">
+                                {teamMember.Skills__c}
+                            </div>
+                        </div>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>
